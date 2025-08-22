@@ -1,7 +1,7 @@
 # Fractol
 Enjoy with the beauty of the Fractals
 
-Introduction
+<p>Introduction</p>
 The term fractal was first used by mathematician Benoit Mandelbrot in 1974. He based
 it on the Latin word fractus which means "broken" or "fractured".
 A fractal is an abstract mathematical object, such as a curve or a surface, whose
