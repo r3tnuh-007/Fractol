@@ -11,7 +11,7 @@ int main(int argc, char **argv)
         fractal_init(&fractal);
 
         //2
-        //fractal_render(&fractal);
+        fractal_render(&fractal);
 
         //3
         mlx_loop(fractal.mlx);

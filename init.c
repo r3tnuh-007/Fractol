@@ -6,6 +6,12 @@ static void malloc_error(void)
     exit(EXIT_FAILURE);
 }
 
+void data_init(t_fractal *fractal)
+{
+    fractal -> escape_value = 4.0; // 2², my hypotenuse limit to consider a value escaped
+    fractal -> max_iterations = 1000; //value tight with image quality and rendering speed
+}
+
 void fractal_init(t_fractal *fractal)
 {
     // Connetion
@@ -37,5 +43,5 @@ void fractal_init(t_fractal *fractal)
                                                     &fractal -> img.endian);
 
     //events_init(fractal)// to do
-    //data_init(fractal)// to do
+    data_init(fractal); // to do
 }
