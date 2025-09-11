@@ -1,0 +1,3 @@
+In order to compile our program we must use
+these flags:
+-lXext -lX11 -lm -lz
