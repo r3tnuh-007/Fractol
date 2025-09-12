@@ -6,11 +6,12 @@
 #include <math.h>
 #include <unistd.h>
 #include <X11/keysym.h>
+#include <X11/X.h>
 #include "minilibx-linux/mlx.h"
 
 # define ERROR_MESSAGE "Please enter\n\t\"./fractol mandelbrotset\" or \n\t\".fractol julia <r> <i>\"\n"
-# define WIDTH 700
-# define HEIGHT 600
+# define WIDTH 742
+# define HEIGHT 642
 
 // Colors
 # define BLACK 0x000000
@@ -42,6 +43,9 @@ typedef struct s_fractal
 
     //Hooks variables
     double escape_value; //hypotenuse limit to consider a value escaped
+    double shift_x;
+    double shift_y;
+    double zoom;
     int max_iterations; //value tight with image quality and rendering speed
 }   t_fractal;
 
@@ -57,11 +61,17 @@ void putstr_fd(char *s, int fd);
 
 //Fractal
 void fractal_init(t_fractal *fractal);
+void data_init(t_fractal *fractal);
 void fractal_render(t_fractal *fractal);
 
 // Math
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_complex sum_complex(t_complex z1, t_complex z2);
 t_complex square_complex(t_complex z);
+
+// Events
+int key_handle (int keysym, t_fractal *fractal);
+int close_handle(t_fractal *fractal);
+int mouse_handle(int button, int x, int y, t_fractal *fractal);
 
 #endif

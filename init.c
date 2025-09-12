@@ -8,8 +8,18 @@ static void malloc_error(void)
 
 void data_init(t_fractal *fractal)
 {
-    fractal -> escape_value = 4.0; // 2², my hypotenuse limit to consider a value escaped
-    fractal -> max_iterations = 1000; //value tight with image quality and rendering speed
+    fractal -> escape_value = 8.0; // 2², my hypotenuse limit to consider a value escaped
+    fractal -> max_iterations = 42; //value tight with image quality and rendering speed
+    fractal -> shift_x = 0.0;
+    fractal -> shift_y = 0.0;
+    fractal -> zoom = 1.0;
+}
+
+static void events_init(t_fractal *fractal)
+{
+    mlx_hook(fractal -> win, KeyPress, KeyPressMask, key_handle, fractal);
+    mlx_hook(fractal -> win, ButtonPress, ButtonPressMask, mouse_handle, fractal);
+    mlx_hook(fractal -> win, DestroyNotify, StructureNotifyMask, close_handle, fractal);
 }
 
 void fractal_init(t_fractal *fractal)
@@ -42,6 +52,6 @@ void fractal_init(t_fractal *fractal)
                                                     &fractal -> img.line_length,
                                                     &fractal -> img.endian);
 
-    //events_init(fractal)// to do
-    data_init(fractal); // to do
+    data_init(fractal);
+    events_init(fractal);
 }

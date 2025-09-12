@@ -20,8 +20,8 @@ static void handle_pixel(int x, int y, t_fractal *fractal)
     z.real = 0;
     z.i = 0;
     i = 0;
-    c.real = map(x, -2, +2, 0, WIDTH);
-    c.i = map(y, +2, -2, 0, HEIGHT);
+    c.real = (map(x, -2, +2, 0, WIDTH) * fractal -> zoom) + fractal -> shift_x;
+    c.i = (map(y, +2, -2, 0, HEIGHT) * fractal -> zoom) + fractal -> shift_y;
 
     //How many times i will iterate z²
     while (i < fractal -> max_iterations)
@@ -33,18 +33,20 @@ static void handle_pixel(int x, int y, t_fractal *fractal)
         if ((z.real * z.real) + (z.i * z.i) > fractal -> escape_value)
         {
             //color pixel
-            //color = map(i, 0x404040, 0xC0C0C0, 0, fractal -> max_iterations);
+            color = map(i, BLACK, WHITE, 0, fractal -> max_iterations);
+            /*
             if (i > 22)
                 color = 0x808080;
             else
                 color = BLACK;
+            */
             my_pixel_put(&fractal -> img, x, y, color);
             return ;
         }
         i ++;
     }
     // We are in the Mandelbrotset given the max iterations
-    my_pixel_put(&fractal -> img, x, y, WHITE);
+    my_pixel_put(&fractal -> img, x, y, BLACK);
 }
 
 void fractal_render(t_fractal *fractal)
