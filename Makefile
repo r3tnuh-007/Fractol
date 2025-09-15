@@ -6,7 +6,7 @@
 #    By: aluis <aluis@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/07 19:23:03 by aluis             #+#    #+#              #
-#    Updated: 2025/09/15 15:54:59 by aluis            ###   ########.fr        #
+#    Updated: 2025/09/15 16:19:22 by aluis            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ MINILIBX = libmlx_Linux.a
 RM = rm -f
 
 SRC =	e_close_handle.c\
+		e_julia_track.c\
 		e_key_handle.c\
 		e_mouse_handle.c\
 		i_data_init.c\

@@ -6,7 +6,7 @@
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 15:51:20 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 16:17:11 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ double		m_atoi(char *s);
 int			key_handle(int keysym, t_fractal *fractal);
 int			close_handle(t_fractal *fractal);
 int			mouse_handle(int button, int x, int y, t_fractal *fractal);
+int			julia_track(int x, int y, t_fractal *fractal);
 //render functions
 void		fractal_render(t_fractal *fractal);
 void		handle_pixel(int x, int y, t_fractal *fractal);

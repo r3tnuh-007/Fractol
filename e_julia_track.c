@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   i_events_init.c                                    :+:      :+:    :+:   */
+/*   e_julia_track.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 16:17:15 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 16:16:33 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	events_init(t_fractal *fractal)
+int	julia_track(int x, int y, t_fractal *fractal)
 {
-	mlx_hook(fractal -> win, KeyPress, KeyPressMask, key_handle, fractal);
-	mlx_hook(fractal -> win, ButtonPress, ButtonPressMask,
-		mouse_handle, fractal);
-	mlx_hook(fractal -> win, DestroyNotify, StructureNotifyMask,
-		close_handle, fractal);
-	mlx_hook(fractal -> win, MotionNotify, PointerMotionMask,
-		julia_track, fractal);
+	if (!ft_strncmp(fractal -> name, "julia", 10))
+	{
+		fractal -> julia_real = (map(x, -2, +2, WIDTH) * fractal -> zoom)
+			+ fractal -> shift_x;
+		fractal -> julia_imag = (map(y, +2, -2, HEIGHT) * fractal -> zoom)
+			+ fractal -> shift_y;
+		fractal_render(fractal);
+	}
+	return (0);
 }
