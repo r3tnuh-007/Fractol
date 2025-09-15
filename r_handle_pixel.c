@@ -6,7 +6,7 @@
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 14:09:24 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 15:46:46 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 	int			i;
 
-	z.real = 0;
-	z.i = 0;
 	i = 0;
-	c.real = (map(x, -2, +2, WIDTH) * fractal -> zoom) + fractal -> shift_x;
-	c.i = (map(y, +2, -2, HEIGHT) * fractal -> zoom) + fractal -> shift_y;
+	z.real = (map(x, -2, +2, WIDTH) * fractal -> zoom) + fractal -> shift_x;
+	z.i = (map(y, +2, -2, HEIGHT) * fractal -> zoom) + fractal -> shift_y;
+	mandel_vs_julia(&z, &c, fractal);
 	while (i < fractal -> max_iterations)
 	{
 		z = sum_complex(square_complex(z), c);

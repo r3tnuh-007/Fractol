@@ -6,7 +6,7 @@
 #    By: aluis <aluis@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/07 19:23:03 by aluis             #+#    #+#              #
-#    Updated: 2025/09/15 14:07:51 by aluis            ###   ########.fr        #
+#    Updated: 2025/09/15 15:54:59 by aluis            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,13 @@ SRC =	e_close_handle.c\
 		i_fractal_init.c\
 		i_malloc_error.c\
 		main.c\
+		m_atoi.c\
 		m_map.c\
 		m_square_complex.c\
 		m_sum_complex.c\
 		r_fractal_render.c\
 		r_handle_pixel.c\
+		r_mandel_vs_julia.c\
 		r_my_pixel_put.c\
 		s_ft_strncmp.c\
 		s_putstr_fd.c\

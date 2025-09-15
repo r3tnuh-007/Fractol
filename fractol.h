@@ -6,7 +6,7 @@
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 13:48:40 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 15:51:20 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ typedef struct s_fractal
 	double	escape_value;
 	double	shift_x;
 	double	shift_y;
+	double	julia_real;
+	double	julia_imag;
 	double	zoom;
 	int		max_iterations;
 }			t_fractal;
@@ -85,6 +87,7 @@ double		map(double unscaled_num, double new_min, double new_max,
 				double old_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
+double		m_atoi(char *s);
 //event handle functions
 int			key_handle(int keysym, t_fractal *fractal);
 int			close_handle(t_fractal *fractal);
@@ -93,4 +96,5 @@ int			mouse_handle(int button, int x, int y, t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
 void		handle_pixel(int x, int y, t_fractal *fractal);
 void		my_pixel_put(t_image *img, int x, int y, int color);
+void		mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal);
 #endif

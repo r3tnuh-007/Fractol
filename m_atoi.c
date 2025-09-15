@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   m_atoi.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 15:56:16 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 15:31:56 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int argc, char **argv)
+double	m_atoi(char *s)
 {
-	t_fractal	fractal;
+	long	int_part;
+	double	frac_part;
+	double	pow;
+	int		sign;
 
-	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrotset", 16))
-		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 10)))
+	int_part = 0;
+	frac_part = 0.0;
+	sign = +1;
+	pow = 1.0;
+	while (*s == ' ' || (*s >= 9 && *s <= 13))
+		s++;
+	while (*s == '-' || *s == '+')
+		if (*s++ == '-')
+			sign *= -1;
+	while (*s >= '0' && *s <= '9' && (*s != '.') && *s)
+		int_part = int_part * 10 + (*s++ - '0');
+	if (*s == '.')
+		s++;
+	while (*s >= '0' && *s <= '9' && *s)
 	{
-		fractal.name = argv[1];
-		if (argc == 4 && !ft_strncmp(argv[1], "julia", 10))
-		{
-			fractal.julia_real = m_atoi(argv[2]);
-			fractal.julia_imag = m_atoi(argv[3]);
-		}
-		fractal_init(&fractal);
-		fractal_render(&fractal);
-		mlx_loop(fractal.mlx);
+		pow /= 10;
+		frac_part += (*s++ - '0') * pow;
 	}
-	else
-	{
-		putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+	return ((int_part + frac_part) * sign);
 }
