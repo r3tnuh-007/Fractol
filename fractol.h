@@ -6,7 +6,7 @@
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 03:31:45 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 13:48:40 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,14 @@ void		putstr_fd(char *s, int fd);
 //init funtions
 void		fractal_init(t_fractal *fractal);
 void		data_init(t_fractal *fractal);
+void		malloc_error(void);
+void		events_init(t_fractal *fractal);
 //math functions
 double		map(double unscaled_num, double new_min, double new_max,
 				double old_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
-//handle functions
+//event handle functions
 int			key_handle(int keysym, t_fractal *fractal);
 int			close_handle(t_fractal *fractal);
 int			mouse_handle(int button, int x, int y, t_fractal *fractal);

@@ -6,7 +6,7 @@
 #    By: aluis <aluis@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/07 19:23:03 by aluis             #+#    #+#              #
-#    Updated: 2025/09/15 03:07:38 by aluis            ###   ########.fr        #
+#    Updated: 2025/09/15 13:58:36 by aluis            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,13 @@ CFLAGS = -lXext -lX11 -lm -lz -g
 MINILIBX = libmlx_Linux.a
 RM = rm -f
 
-SRC =	events.c\
-		init.c\
+SRC =	e_close_handle.c\
+		e_key_handle.c\
+		e_mouse_handle.c\
+		i_data_init.c\
+		i_events_init.c\
+		i_fractal_init.c\
+		i_malloc_error.c\
 		main.c\
 		m_map.c\
 		m_square_complex.c\
