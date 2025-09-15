@@ -6,13 +6,13 @@
 #    By: aluis <aluis@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/07 19:23:03 by aluis             #+#    #+#              #
-#    Updated: 2025/09/15 13:58:36 by aluis            ###   ########.fr        #
+#    Updated: 2025/09/15 14:07:51 by aluis            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 HEADER = fractol.h
-CFLAGS = -lXext -lX11 -lm -lz -g
+CFLAGS = -Wall -Wextra -Werror -lXext -lX11 -lm -lz -g
 MINILIBX = libmlx_Linux.a
 RM = rm -f
 

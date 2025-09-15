@@ -6,7 +6,7 @@
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 13:33:40 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 14:12:22 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	mouse_handle(int button, int x, int y, t_fractal *fractal)
 		fractal -> zoom *= 0.95;
 	else if ((int) button == 65453 || button == 3)
 		fractal -> zoom *= 1.5;
-	printf("%d\n", button);
+	printf("%d, %d, %d\n", button, x, y);
 	fractal_render(fractal);
 	return (0);
 }

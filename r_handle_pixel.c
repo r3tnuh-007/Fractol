@@ -6,7 +6,7 @@
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 03:20:13 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 14:09:24 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 	t_complex	c;
 	int			color;
 	int			i;
-	double		tmp_real;
 
 	z.real = 0;
 	z.i = 0;
