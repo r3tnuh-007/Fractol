@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   s_ft_strncmp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 02:48:09 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 01:03:25 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int argc, char **argv)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
-	t_fractal	fractal;
-
-	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrotset", 16)
-		|| argc == 4 && !ft_strncmp(argv[1], "julia", 10))
+	if (s1 == NULL || s2 == NULL || n <= 0)
+		return (0);
+	while (*s1 && *s1 == *s2 && n --)
 	{
-		fractal.name = argv[1];
-		fractal_init(&fractal);
-		fractal_render(&fractal);
-		mlx_loop(fractal.mlx);
+		s1 ++;
+		s2 ++;
 	}
-	else
-	{
-		putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+	return (*s1 - *s2);
 }

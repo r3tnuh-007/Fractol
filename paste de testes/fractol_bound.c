@@ -10,17 +10,17 @@ the Mandelbrot set and the Julia set.
 
 typedef struct s_complex
 {
-    double real;
-    double i;
+	double real;
+	double i;
 } t_complex;
 
-int main(void)
+int	main(void)
 {
-    t_complex z, c;
-    double tmp_real;
+	t_complex	z,c;
+	double		tmp_real;
 
-    z.real = 0;
-    z.i = 0;
+	z.real = 0;
+	z.i = 0;
 
     c.real = 0.25;
     c.i = 0.4;

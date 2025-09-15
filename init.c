@@ -2,7 +2,7 @@
 
 static void malloc_error(void)
 {
-    perror("\nProblem with malloc\n");
+    perror("\nProblem with malloc.a\n");
     exit(EXIT_FAILURE);
 }
 

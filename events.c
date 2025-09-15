@@ -1,6 +1,6 @@
 #include "fractol.h"
 
-int close_handle(t_fractal *fractal)
+int	close_handle(t_fractal *fractal)
 {
     mlx_destroy_image(fractal -> mlx, fractal -> img.img_ptr);
     mlx_destroy_window(fractal -> mlx, fractal -> win);

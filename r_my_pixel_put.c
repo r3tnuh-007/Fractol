@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   r_my_pixel_put.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aluis <aluis@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:23:03 by aluis             #+#    #+#             */
-/*   Updated: 2025/09/15 02:48:09 by aluis            ###   ########.fr       */
+/*   Updated: 2025/09/15 02:24:03 by aluis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int argc, char **argv)
+void	my_pixel_put(t_image *img, int x, int y, int color)
 {
-	t_fractal	fractal;
+	int	offset;
 
-	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrotset", 16)
-		|| argc == 4 && !ft_strncmp(argv[1], "julia", 10))
-	{
-		fractal.name = argv[1];
-		fractal_init(&fractal);
-		fractal_render(&fractal);
-		mlx_loop(fractal.mlx);
-	}
-	else
-	{
-		putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+	offset = (img -> line_length * y) + (x * (img -> bits_per_pixel / 8));
+	*((unsigned int *)(offset + img -> pixel_ptr)) = color;
 }

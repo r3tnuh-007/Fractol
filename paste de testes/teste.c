@@ -4,13 +4,13 @@
 #include <math.h>
 #include <X11/keysym.h>
 
-# define WIDTH 400
-# define HEIGHT 250
-# define MALLOC_ERR 1
+# define	WIDTH 400
+# define	HEIGHT 250
+# define	MALLOC_ERR 1
 
 typedef struct s_img
 {
-    void *img_ptr;
+	void *img_ptr;
     char *img_pixel_ptr;
     int bits_per_pixel;
     int endian;
@@ -74,7 +74,7 @@ int main(void)
 
     if (data.mlx_ptr == NULL)
         return (MALLOC_ERR);
-    
+
     /*Criacao da Janela */
     data.win_ptr = mlx_new_window(data.mlx_ptr,
         WIDTH,
@@ -100,11 +100,11 @@ int main(void)
     mlx_key_hook(data.win_ptr, f, &data);
 
     /*Loop*/
-    mlx_loop(data.mlx_ptr);
-    
+	mlx_loop(data.mlx_ptr);
+
     mlx_destroy_window(data.mlx_ptr, data.win_ptr);
     mlx_destroy_display(data.mlx_ptr);
     free(data.mlx_ptr);
-    
+
     return (0);
 }
