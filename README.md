@@ -9,3 +9,4 @@ pattern remains consistent at every scale.
 Various natural phenomena, such as the Romanesco cabbage, exhibit fractal features
 subir essa versao
 r
+i did not changed it.
