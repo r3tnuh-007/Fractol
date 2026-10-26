@@ -12,3 +12,5 @@ subir essa versao
 testeeeeee
 
 i did not changed it.
+
+melhorar esse makefile
